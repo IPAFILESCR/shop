@@ -1,0 +1,393 @@
+.has-image-bg {
+  background-color: var(--image-fallback-bg, transparent);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+img.eager { content-visibility: visible; }
+img.lazy {
+  content-visibility: auto;
+  contain-intrinsic-size: 1px 600px;
+}
+img { height: auto; }
+
+
+.container,
+.hero,
+.category,
+.benefits,
+.testimonials,
+.faq,
+.bento,
+.process,
+.guarantee,
+.stats-band,
+.site-footer {
+  will-change: auto;
+  contain: paint;
+}
+
+.app-shell,
+main,
+.carousel {
+  will-change: auto;
+}
+
+.price-card,
+.benefit,
+.testimonial,
+.process__step,
+.bento__tile,
+.faq__item,
+.carousel__slide {
+  will-change: auto;
+}
+
+.price-card:hover,
+.benefit:hover,
+.testimonial:hover,
+.process__step:hover,
+.bento__tile:hover,
+.price-card:focus-within,
+.btn:hover,
+.btn:focus-visible {
+  will-change: transform;
+}
+
+
+.btn,
+.device-tabs__btn,
+.back-to-top,
+.faq__trigger,
+.carousel__dot,
+.site-header__nav a,
+.site-footer__col a{
+  touch-action: manipulation;
+}
+
+
+.carousel__viewport {
+  overscroll-behavior: contain;
+}
+
+
+@supports (container-type: inline-size) {
+  .plans-grid,
+  .benefits__grid,
+  .testimonials__grid,
+  .bento__grid,
+  .process__list {
+    container-type: inline-size;
+  }
+}
+
+
+.with-bg-image {
+  position: relative;
+  isolation: isolate;
+}
+
+.with-bg-image::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: var(--bg-image, none);
+  background-size: cover;
+  background-position: center;
+  opacity: var(--bg-image-opacity, 0.6);
+  z-index: -1;
+  pointer-events: none;
+  border-radius: inherit;
+}
+
+.guarantee {
+  position: relative;
+  isolation: isolate;
+}
+
+.guarantee[data-parallax] {
+  transform: none;
+  will-change: auto;
+}
+
+@media (max-width: 600px) {
+  .with-bg-image::before {
+    opacity: calc(var(--bg-image-opacity, 0.6) * 0.5);
+  }
+}
+
+
+html[data-perf="mid"] *,
+html[data-perf="mid"] *::before,
+html[data-perf="mid"] *::after {
+  mix-blend-mode: normal;
+}
+
+
+html[data-perf="low"] body::before,
+html[data-perf="low"] body::after,
+html[data-perf="low"] .app-shell::before,
+html[data-perf="low"] .app-shell::after {
+  background-image: none;
+  filter: none;
+  mix-blend-mode: normal;
+  display: none;
+}
+
+html[data-perf="low"] *:not(.shell-decor__layer--a):not(.shell-decor__layer--a *),
+html[data-perf="low"] *::before,
+html[data-perf="low"] *::after {
+  mix-blend-mode: normal;
+}
+
+html[data-perf="low"] body::after {
+  filter: none;
+}
+
+html[data-perf="low"] .price-card,
+html[data-perf="low"] .price-card--highlight,
+html[data-perf="low"] .benefit,
+html[data-perf="low"] .testimonial,
+html[data-perf="low"] .bento__tile,
+html[data-perf="low"] .faq__item,
+html[data-perf="low"] .stats-band__grid,
+html[data-perf="low"] .guarantee__inner,
+html[data-perf="low"] .carousel__slide{
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
+
+html[data-perf="low"] [data-parallax] {
+  transform: none;
+  will-change: auto;
+}
+
+html[data-perf="low"] [data-reveal="out"],
+html[data-perf="low"] [data-reveal="in"] {
+  opacity: 1;
+  transform: none;
+  transition: none;
+}
+
+html[data-perf="low"] .price-card,
+html[data-perf="low"] .benefit,
+html[data-perf="low"] .testimonial,
+html[data-perf="low"] .process__step,
+html[data-perf="low"] .bento__tile,
+html[data-perf="low"] .faq__item,
+html[data-perf="low"] .carousel__slide,
+html[data-perf="low"] .btn,
+html[data-perf="low"] .device-tabs__btn{
+  box-shadow: none;
+  transition-property: background-color, color, border-color, opacity;
+  transition-duration: 160ms;
+}
+
+html[data-perf="low"] .price-card:hover,
+html[data-perf="low"] .benefit:hover,
+html[data-perf="low"] .testimonial:hover,
+html[data-perf="low"] .process__step:hover,
+html[data-perf="low"] .bento__tile:hover,
+html[data-perf="low"] .faq__item:hover,
+html[data-perf="low"] .carousel__slide:hover,
+html[data-perf="low"] .btn:hover {
+  transform: none;
+  box-shadow: none;
+}
+
+html[data-perf="low"] .page-progress {
+  display: none;
+}
+
+html[data-perf="low"] .back-to-top {
+  box-shadow: none;
+  border: 1px solid currentColor;
+}
+
+
+
+@media (hover: none) and (pointer: coarse) {
+
+  body::before,
+  body::after,
+  .app-shell::before,
+  .app-shell::after {
+    background-image: none;
+  }
+
+  *,
+  *::before,
+  *::after {
+    mix-blend-mode: normal;
+  }
+
+  .price-card,
+  .price-card--highlight,
+  .benefit,
+  .testimonial,
+  .bento__tile,
+  .faq__item,
+  .stats-band__grid,
+  .guarantee__inner,
+  .carousel__slide{
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+
+  .price-card,
+  .benefit,
+  .testimonial,
+  .process__step,
+  .bento__tile,
+  .faq__item,
+  .carousel__slide,
+  .btn,
+  .device-tabs__btn{
+    transition-property: background-color, color, border-color, opacity;
+    transition-duration: 160ms;
+  }
+
+  [data-parallax] {
+    transform: none;
+    will-change: auto;
+  }
+}
+
+
+@media (max-width: 768px) {
+  .price-card::before,
+  .price-card::after,
+  .price-card--highlight::before,
+  .price-card--highlight::after {
+    background: none;
+    background-image: none;
+    filter: none;
+    mix-blend-mode: normal;
+  }
+
+  [data-reveal="out"] {
+    transition-duration: 320ms;
+    transition-delay: 0ms;
+  }
+
+  .price-card,
+  .benefit,
+  .testimonial,
+  .process__step,
+  .bento__tile,
+  .faq__item {
+    transition: border-color 200ms ease,
+                background-color 200ms ease,
+                color 200ms ease;
+  }
+}
+
+
+@media (prefers-reduced-data: reduce) {
+  body::before,
+  body::after,
+  .app-shell::before,
+  .app-shell::after {
+    background-image: none;
+    display: none;
+  }
+
+  [data-parallax] {
+    transform: none;
+  }
+
+  .with-bg-image::before {
+    background-image: none;
+  }
+}
+
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  [data-reveal="out"],
+  [data-reveal="in"] {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+
+  [data-parallax] {
+    transform: none !important;
+    will-change: auto !important;
+  }
+
+  .price-card:hover,
+  .benefit:hover,
+  .testimonial:hover,
+  .process__step:hover,
+  .bento__tile:hover,
+  .carousel__slide:hover,
+  .btn:hover {
+    transform: none !important;
+  }
+}
+
+
+@media (forced-colors: active) {
+  .price-card,
+  .benefit,
+  .testimonial,
+  .process__step,
+  .bento__tile,
+  .faq__item,
+  .carousel__slide {
+    border: 1px solid CanvasText !important;
+    background: Canvas !important;
+    color: CanvasText !important;
+  }
+
+  .btn,
+  .device-tabs__btn {
+    border: 1px solid ButtonText !important;
+    background: ButtonFace !important;
+    color: ButtonText !important;
+    forced-color-adjust: none;
+  }
+
+  .btn--primary {
+    background: Highlight !important;
+    color: HighlightText !important;
+  }
+
+  :focus-visible {
+    outline: 2px solid Highlight !important;
+    outline-offset: 2px;
+  }
+}
+
+
+@media print {
+  .page-progress,
+  .back-to-top {
+    display: none !important;
+  }
+
+  *,
+  *::before,
+  *::after {
+    background: transparent !important;
+    color: #000 !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+    filter: none !important;
+    backdrop-filter: none !important;
+  }
+}
+
+
+

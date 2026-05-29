@@ -1,0 +1,171 @@
+.site-header__inner > *,
+.hero__content > *,
+.price-card > *,
+.bento__tile > *,
+.benefit > *,
+.testimonial > *,
+.process__step > *,
+.carousel__slide > *,
+.stat-tile > *,
+.guarantee__pillar > *,
+.faq__trigger > *,
+.site-footer__col > *,
+.site-footer__brand > *,
+.nav-dropdown__link > * {
+  min-width: 0;
+}
+
+
+.btn, .bento__heading, .testimonial__body,
+.faq__question, .price-card__title, .category__title,
+.category__subtitle, .process__title, .process__description,
+.guarantee__heading, .guarantee__pillar-value, .guarantee__pillar-caption,
+.benefit__title, .benefit__description, .carousel__slide-title,
+.carousel__slide-caption, .stat-tile__label, .bento__copy, .bento__quote,
+.testimonial__author-name, .testimonial__author-role,
+.faq__answer, .hero__title, .hero__description {
+  hyphens: manual;
+  -webkit-hyphens: manual;
+  word-break: normal;
+  overflow-wrap: anywhere;
+}
+
+
+@media (max-width: 414px) {
+  .container { padding: 0 14px; }
+
+  section.category,
+  section.bento,
+  section.process,
+  section.benefits,
+  section.testimonials,
+  section.faq,
+  section.stats-band,
+  section.carousel {
+    padding: clamp(36px, 9vw, 56px) 0;
+  }
+
+  .category__title { font-size: clamp(22px, 6vw, 28px); }
+  .category__subtitle { font-size: 13px; }
+
+  .price-card { padding: 18px; }
+  .price-card__title { font-size: 18px; }
+  .price-card__price-value { font-size: 28px; }
+  .price-card__features { font-size: 13px; }
+
+  .bento__tile { padding: 18px; }
+  .bento__tile--feature { padding: 22px; }
+  .bento__heading { font-size: 17px; line-height: 1.22; }
+  .bento__tile--feature .bento__heading { font-size: 22px; }
+  .bento__metric { font-size: clamp(30px, 9vw, 40px); }
+  .bento__copy { font-size: 13px; }
+
+  .process__step { padding: 16px; }
+  .process__index { font-size: 28px; }
+
+  .testimonial { padding: 18px; }
+  .testimonial__body { font-size: 13.5px; }
+
+  .faq__trigger { padding: 14px 16px; }
+  .faq__question { font-size: 15px; }
+  .faq__answer { font-size: 13.5px; margin-left: 0; }
+
+  .stats-band__grid { padding: 20px; gap: 14px; }
+  .stat-tile__value { font-size: clamp(24px, 7vw, 32px); }
+  .stat-tile__label { font-size: 12px; }
+
+  .guarantee__inner { padding: 28px 18px; }
+  .guarantee__heading { font-size: clamp(22px, 6vw, 28px); }
+  .guarantee__pillar-value { font-size: clamp(26px, 8vw, 34px); }
+}
+
+
+@media (min-width: 415px) and (max-width: 600px) {
+  .container { padding: 0 18px; }
+  .price-card__price-value { font-size: 32px; }
+}
+
+
+@media (min-width: 601px) and (max-width: 768px) {
+  .container { padding: 0 24px; }
+
+  .bento__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .benefits__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .testimonials__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .process__list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .stats-band__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+
+@media (max-width: 600px) {
+  .category__head {
+    grid-template-columns: auto minmax(0, 1fr) !important;
+    grid-template-rows: auto auto;
+  }
+  .category__icon { grid-row: 1; grid-column: 1; }
+  .category__head > div:nth-child(2) { grid-row: 1; grid-column: 2; }
+  .category__counter {
+    grid-row: 2;
+    grid-column: 1 / -1;
+    justify-self: start;
+    font-size: 11px;
+  }
+}
+
+
+@media (max-width: 600px) {
+  .site-footer__grid {
+    grid-template-columns: 1fr !important;
+    gap: 28px;
+  }
+  .site-footer__col h2 { margin-bottom: 12px; }
+}
+
+@media (min-width: 601px) and (max-width: 1023px) {
+  .site-footer__grid {
+    grid-template-columns: 1fr 1fr !important;
+  }
+  .site-footer__brand { grid-column: 1 / -1; }
+}
+
+
+@media (min-width: 1024px) and (max-width: 1279px) {
+  .container { padding: 0 32px; }
+}
+
+
+@media (min-width: 1920px) {
+  .container {
+    padding: 0 56px;
+    max-width: 1440px;
+  }
+}
+
+
+.device-tabs {
+  flex-wrap: nowrap;
+  width: max-content;
+  max-width: 100%;
+}
+
+.device-tabs__btn { white-space: nowrap; }
+
+
+.category__icon {
+  min-width: 44px;
+  min-height: 44px;
+}

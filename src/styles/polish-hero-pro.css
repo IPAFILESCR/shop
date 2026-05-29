@@ -1,0 +1,301 @@
+.hero.hero--banner {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  width: 100%;
+  min-height: clamp(520px, calc(100vw * 9 / 21), 820px);
+  height: auto;
+  padding: 0;
+  display: flex;
+  align-items: stretch;
+}
+
+
+.hero--banner .hero__banner {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.hero--banner .hero__banner picture {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.hero--banner .hero__banner img {
+  display: block;
+  position: absolute;
+  top: -10%;
+  left: 0;
+  width: 100%;
+  height: 120%;
+  object-fit: cover;
+  object-position: right center;
+  image-rendering: high-quality;
+  -ms-interpolation-mode: bicubic;
+  transform: translate3d(0, calc(var(--p, 0) * 1px), 0);
+  will-change: transform;
+}
+
+
+@media (min-width: 1280px) {
+  .hero--banner .hero__banner img { object-position: right center; }
+}
+
+@media (min-width: 600px) and (max-width: 1279px) {
+  .hero--banner .hero__banner img { object-position: 75% center; }
+}
+
+@media (max-width: 599px) {
+  .hero--banner .hero__banner img { object-position: 82% center; }
+}
+
+
+.hero--banner .hero__veil {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(12, 12, 12, 0.92) 0%,
+      rgba(12, 12, 12, 0.72) 32%,
+      rgba(12, 12, 12, 0.36) 64%,
+      rgba(12, 12, 12, 0.0) 100%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(12, 12, 12, 0.4) 0%,
+      rgba(12, 12, 12, 0.0) 22%,
+      rgba(12, 12, 12, 0.0) 60%,
+      rgba(12, 12, 12, 0.7) 100%
+    );
+}
+
+@media (max-width: 600px) {
+  .hero--banner .hero__veil {
+    background:
+      linear-gradient(
+        90deg,
+        rgba(12, 12, 12, 0.96) 0%,
+        rgba(12, 12, 12, 0.85) 50%,
+        rgba(12, 12, 12, 0.4) 100%
+      ),
+      linear-gradient(
+        180deg,
+        rgba(12, 12, 12, 0.5) 0%,
+        rgba(12, 12, 12, 0.0) 30%,
+        rgba(12, 12, 12, 0.0) 60%,
+        rgba(12, 12, 12, 0.9) 100%
+      );
+  }
+}
+
+
+.hero--banner .hero__vignette {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background: radial-gradient(
+    ellipse 130% 90% at 70% 50%,
+    rgba(12, 12, 12, 0) 30%,
+    rgba(12, 12, 12, 0.35) 80%,
+    rgba(12, 12, 12, 0.8) 100%
+  );
+  mix-blend-mode: multiply;
+}
+
+html[data-perf="low"] .hero--banner .hero__vignette {
+  display: none;
+}
+
+
+.hero--banner .hero__content {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: clamp(28px, 4vw, 56px);
+  padding: clamp(40px, 6vw, 72px) 0 clamp(40px, 6vw, 64px);
+  align-items: end;
+}
+
+@media (min-width: 880px) {
+  .hero--banner .hero__content {
+    grid-template-columns: minmax(0, 1.5fr) minmax(280px, 1fr);
+  }
+}
+
+@media (min-width: 1281px) {
+  .hero--banner .hero__content {
+    grid-template-columns: minmax(0, 1.6fr) minmax(320px, 1fr);
+  }
+}
+
+.hero--banner .hero__copy {
+  min-width: 0;
+  max-width: 56ch;
+}
+
+
+.hero--banner .hero__eyebrow {
+  margin: 0 0 clamp(14px, 1.8vw, 22px);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+}
+
+@media (max-width: 420px) {
+  .hero--banner .hero__eyebrow {
+    white-space: normal;
+  }
+}
+
+
+.hero--banner .hero__title {
+  font-size: clamp(36px, 6vw, 64px);
+  line-height: 1.04;
+  letter-spacing: -0.025em;
+  font-weight: 600;
+  max-width: 22ch;
+  margin: 0 0 clamp(16px, 2vw, 24px);
+  hyphens: manual;
+  -webkit-hyphens: manual;
+  word-break: normal;
+  overflow-wrap: anywhere;
+}
+
+@supports (text-wrap: balance) {
+  .hero--banner .hero__title { text-wrap: balance; }
+}
+
+
+.hero--banner .hero__description {
+  font-size: clamp(14px, 1.4vw, 17px);
+  line-height: 1.55;
+  max-width: 48ch;
+  margin: clamp(14px, 2vw, 24px) 0 0;
+  opacity: 0.82;
+  hyphens: manual;
+  -webkit-hyphens: manual;
+  word-break: normal;
+  overflow-wrap: anywhere;
+}
+
+
+.hero--banner .hero__ctas {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: clamp(20px, 3vw, 32px);
+  min-width: 0;
+}
+
+@media (max-width: 480px) {
+  .hero--banner .hero__ctas {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .hero--banner .hero__ctas .btn {
+    width: 100%;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media (prefers-reduced-motion: reduce) {
+  .hero--banner .hero__banner img {
+    transform: none !important;
+    will-change: auto;
+  }
+}
+
+html[data-perf="low"] .hero--banner .hero__banner img {
+  transform: none;
+  will-change: auto;
+}
+
+@media (forced-colors: active) {
+  .hero--banner .hero__veil,
+  .hero--banner .hero__vignette {
+    background: Canvas !important;
+    opacity: 0.85;
+  }
+  .hero--banner .hero__banner img {
+    filter: none;
+  }
+  
+}
+
+
+.hero--banner .hero__content {
+  display: flex !important;
+  flex-direction: column !important;
+  grid-template-columns: none !important;
+  padding-left: clamp(8px, 2vw, 24px);
+  padding-right: clamp(8px, 2vw, 24px);
+}
+
+@media (max-width: 879px) {
+  .hero.hero--banner { align-items: center; }
+  .hero--banner .hero__content {
+    align-items: center;
+    text-align: center;
+    padding-top: clamp(40px, 8vw, 72px);
+    padding-bottom: clamp(56px, 10vw, 80px);
+  }
+  .hero--banner .hero__title,
+  .hero--banner .hero__description { margin-left: auto; margin-right: auto; }
+  .hero--banner .hero__eyebrow { align-self: center; }
+  .hero--banner .hero__ctas { justify-content: center; }
+}
+
+@media (min-width: 880px) {
+  .hero.hero--banner { align-items: end; }
+  .hero--banner .hero__content {
+    align-items: flex-start;
+    text-align: left;
+  }
+  .hero--banner .hero__title,
+  .hero--banner .hero__description { margin-left: 0; margin-right: 0; }
+  .hero--banner .hero__eyebrow { align-self: flex-start; }
+  .hero--banner .hero__ctas { justify-content: flex-start; }
+}
+
+@media (max-width: 480px) {
+  .hero--banner .hero__ctas {
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+    max-width: 320px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .hero--banner .hero__ctas .btn { width: 100%; }
+}
+
+.hero--banner .hero__copy { max-width: 38ch; }

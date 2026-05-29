@@ -1,0 +1,231 @@
+.skip-link {
+  position: absolute;
+  top: -200%;
+  left: 8px;
+  padding: 10px 14px;
+  background: var(--fg, #000);
+  color: var(--bg, #fff);
+  border-radius: var(--btn-radius, 6px);
+  font: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  z-index: 200;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+  transition: top 200ms ease;
+}
+
+.skip-link:focus,
+.skip-link:focus-visible {
+  top: 8px;
+  outline: 2px solid var(--focus-ring, currentColor);
+  outline-offset: 3px;
+}
+
+button:focus-visible,
+a:focus-visible,
+[role="radio"]:focus-visible,
+[role="tab"]:focus-visible,
+[role="option"]:focus-visible,
+[role="button"]:focus-visible,
+[tabindex="0"]:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+summary:focus-visible,
+.carousel__dot:focus-visible,
+.faq__trigger:focus-visible,
+.device-tabs__btn:focus-visible,
+.back-to-top:focus-visible{
+  outline: 2px solid var(--focus-ring, currentColor);
+  outline-offset: 3px;
+  border-radius: var(--focus-radius, 4px);
+  box-shadow: 0 0 0 4px rgba(200, 169, 106, 0.22);
+}
+
+.device-tabs__btn:focus:not(:focus-visible),
+.carousel__dot:focus:not(:focus-visible),
+.btn:focus:not(:focus-visible) {
+  outline: none;
+}
+
+.price-card:focus-within,
+.faq__item--open:focus-within,
+.carousel__slide:focus-within,
+.bento__cell:focus-within {
+  outline: 2px solid var(--focus-ring, currentColor);
+  outline-offset: 4px;
+  border-radius: var(--focus-radius, 4px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto !important;
+  }
+
+  .skip-link,
+  .back-to-top,
+  .page-progress__bar {
+    transition: none !important;
+  }
+
+  .price-card:hover,
+  .benefit:hover,
+  .btn:hover,
+  .carousel__slide:hover{
+    transform: none !important;
+  }
+
+  .logo-marquee__track {
+    animation: none !important;
+  }
+}
+
+@media (prefers-contrast: more) {
+  .price-card,
+  .benefit,
+  .process__step,
+  .testimonial,
+  .faq__item,
+  .guarantee__inner,
+  .stats-band__grid,
+  .device-tabs,
+  .carousel__slide,
+  .bento__cell{
+    border-width: 2px !important;
+  }
+
+  .btn--secondary {
+    border-width: 2px !important;
+  }
+
+  .btn:focus-visible,
+  a:focus-visible,
+  button:focus-visible,
+  [role="radio"]:focus-visible,
+  [role="tab"]:focus-visible,
+  [role="option"]:focus-visible {
+    outline-width: 3px !important;
+    outline-offset: 4px !important;
+  }
+
+  .site-header__nav a,
+  .price-card__caption,
+  .price-card__description,
+  .hero__eyebrow,
+  .hero__description,
+  .category__counter,
+  .category__subtitle,
+  .site-footer__col h2,
+  .site-footer__bottom,
+  .site-footer__brand p,
+  .faq__index,
+  .faq__answer,
+  .stat-tile__label,
+  .guarantee__eyebrow,
+  .guarantee__pillar-caption,
+  .testimonial__author-role,
+  .carousel__slide-caption,
+  .carousel__slide-meta,
+  .muted,
+  .opacity-7x,
+  .caption {
+    opacity: 1 !important;
+  }
+}
+
+@media (forced-colors: active) {
+  .btn,
+  .price-card,
+  .benefit,
+  .process__step,
+  .testimonial,
+  .stat-tile,
+  .guarantee__inner,
+  .faq__item,
+  .device-tabs,
+  .stats-band__grid,
+  .back-to-top,
+  .carousel__slide,
+  .carousel__dot,
+  .bento__cell{
+    border: 1px solid CanvasText !important;
+    forced-color-adjust: none;
+  }
+
+  .btn--primary {
+    background: ButtonText !important;
+    color: ButtonFace !important;
+  }
+
+  .btn--secondary {
+    background: ButtonFace !important;
+    color: ButtonText !important;
+  }
+
+  .skip-link {
+    background: ButtonText;
+    color: ButtonFace;
+  }
+
+  button:focus-visible,
+  a:focus-visible,
+  [role="radio"]:focus-visible,
+  [role="tab"]:focus-visible,
+  [role="option"]:focus-visible {
+    outline: 2px solid Highlight !important;
+    outline-offset: 3px;
+    box-shadow: none !important;
+  }
+
+  .price-card--highlight,
+  .device-tabs__btn[aria-selected="true"],
+  .carousel__slide--active,
+  .carousel__dot[aria-selected="true"],
+  .faq__item--open {
+    outline: 2px solid Highlight;
+    outline-offset: -2px;
+  }
+
+  .page-progress {
+    background: GrayText !important;
+  }
+  .page-progress__bar {
+    background: Highlight !important;
+  }
+}
+
+@media print {
+  .back-to-top,
+  .page-progress{
+    display: none !important;
+  }
+
+  [aria-disabled="true"],
+  [disabled] {
+    cursor: default !important;
+  }
+}
+
+[aria-disabled="true"],
+[disabled],
+button:disabled,
+a[aria-disabled="true"] {
+  cursor: not-allowed;
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.visually-live {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}

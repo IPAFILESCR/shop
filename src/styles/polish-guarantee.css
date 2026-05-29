@@ -1,0 +1,42 @@
+.guarantee {
+  overflow: hidden;
+}
+
+.guarantee__inner {
+  position: relative;
+  z-index: 1;
+}
+
+
+.guarantee__pillar {
+  padding-top: clamp(24px, 2.4vw, 32px);
+}
+
+
+.guarantee__eyebrow::before,
+.guarantee__eyebrow::after {
+  min-width: 32px;
+}
+
+
+.guarantee__heading {
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.18);
+}
+
+
+@media (prefers-reduced-motion: reduce) {
+  .guarantee::before {
+    transform: none !important;
+  }
+}
+
+
+@media (forced-colors: active) {
+  .guarantee::before {
+    display: none !important;
+  }
+  .guarantee {
+    background: Canvas !important;
+    color: CanvasText !important;
+  }
+}

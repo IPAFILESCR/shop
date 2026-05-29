@@ -1,0 +1,16 @@
+# robots.txt for IPAFILESCR — https://ipafilescr.github.io/shop/
+# NOTE: On GitHub Pages project sites the authoritative robots.txt is at the
+# domain root (ipafilescr.github.io/robots.txt). This file is served at
+# /shop/robots.txt and is advisory only. Submit the sitemap manually via
+# Google Search Console and Yandex Webmaster.
+
+User-agent: *
+Allow: /
+
+User-agent: Yandex
+Allow: /
+
+User-agent: YandexBot
+Allow: /
+
+Sitemap: https://ipafilescr.github.io/shop/sitemap.xml

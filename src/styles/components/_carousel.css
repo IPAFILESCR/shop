@@ -1,0 +1,319 @@
+.carousel {
+  padding: clamp(40px, 6vw, 80px) 0;
+  position: relative;
+  min-width: 0;
+}
+
+.carousel.carousel--pinned,
+[data-theme] .carousel.carousel--pinned {
+  padding: 0;
+  margin: 0;
+}
+
+.carousel__pin-wrap {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+}
+
+.carousel__pin-viewport {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: clamp(28px, 4vh, 56px);
+  padding-block: clamp(40px, 5vh, 72px);
+  overflow: hidden;
+}
+
+.carousel__pin-stage {
+  width: 100%;
+  overflow: hidden;
+  padding-block: 8px;
+}
+
+.carousel__pin-track {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: clamp(20px, 2.4vw, 32px);
+  padding: 0 clamp(24px, 6vw, 96px);
+  width: max-content;
+  align-items: stretch;
+  will-change: transform;
+  transform: translate3d(0, 0, 0);
+}
+
+.carousel--pinned .carousel__slide,
+[data-theme] .carousel--pinned .carousel__slide {
+  flex: 0 0 clamp(320px, 26vw, 440px);
+  width: auto;
+  min-height: clamp(380px, 56vh, 620px);
+  scroll-snap-align: none;
+  transform: none;
+  opacity: 1;
+}
+
+.carousel--pinned .carousel__slide--active {
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .carousel__pin-track {
+    transform: none !important;
+    will-change: auto;
+  }
+}
+
+.carousel__viewport {
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+  touch-action: pan-x;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  scroll-padding-inline: clamp(24px, 4vw, 80px);
+  overscroll-behavior-x: contain;
+  padding-block: 8px;
+
+  -webkit-mask-image: linear-gradient(
+    90deg,
+    transparent 0,
+    #000 6%,
+    #000 94%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    90deg,
+    transparent 0,
+    #000 6%,
+    #000 94%,
+    transparent 100%
+  );
+
+  scrollbar-width: none;
+}
+
+.carousel__viewport::-webkit-scrollbar {
+  display: none;
+}
+
+.carousel__track {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: clamp(16px, 2vw, 24px);
+  padding: 0 clamp(24px, 4vw, 80px);
+  width: max-content;
+  align-items: stretch;
+}
+
+.carousel__slide {
+  flex: 0 0 clamp(280px, 60vw, 460px);
+  scroll-snap-align: center;
+  scroll-snap-stop: always;
+
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  padding: clamp(20px, 2.2vw, 28px);
+  border-radius: var(--card-radius, 16px);
+  background: var(--card-bg, transparent);
+  border: var(--card-border, 1px solid transparent);
+
+  min-width: 0;
+
+  transform: scale(0.96);
+  transform-origin: center;
+  opacity: 0.7;
+  transition:
+    transform 240ms cubic-bezier(0.2, 0.6, 0.2, 1),
+    opacity 240ms ease,
+    border-color 240ms ease,
+    background-color 240ms ease;
+
+  will-change: auto;
+}
+
+.carousel__slide--active {
+  transform: scale(1);
+  opacity: 1;
+}
+
+.carousel__slide-index {
+  font-family: var(--font-display, inherit);
+  font-size: clamp(32px, 3.6vw, 48px);
+  line-height: 1;
+  font-weight: 600;
+  color: var(--accent, currentColor);
+  letter-spacing: -0.02em;
+  font-variant-numeric: tabular-nums;
+}
+
+.carousel__slide-title {
+  font-size: clamp(18px, 1.8vw, 22px);
+  font-weight: 600;
+  line-height: 1.25;
+  margin: 0;
+  word-break: break-word;
+  overflow-wrap: anywhere;
+}
+
+.carousel__slide-caption {
+  font-size: 14px;
+  line-height: 1.55;
+  opacity: 0.78;
+  margin: 0;
+  flex: 1 1 auto;
+  word-break: break-word;
+  overflow-wrap: anywhere;
+}
+
+.carousel__slide-meta {
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  opacity: 0.55;
+  font-family: var(--font-mono, ui-monospace, monospace);
+  margin: 0;
+  margin-top: auto;
+}
+
+.carousel__dots {
+  display: flex;
+  gap: 8px;
+  margin-top: clamp(20px, 2vw, 28px);
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.carousel__dot {
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  border-radius: 999px;
+  cursor: pointer;
+  position: relative;
+  display: grid;
+  place-items: center;
+  font: inherit;
+  color: inherit;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.carousel__dot:focus {
+  outline: none;
+}
+
+.carousel__dot:focus-visible {
+  outline: 2px solid var(--accent, currentColor);
+  outline-offset: 4px;
+  border-radius: 999px;
+}
+
+.carousel__dot-fill {
+  display: block;
+  width: 32px;
+  height: 6px;
+  border-radius: 999px;
+  background: var(--card-border-color, rgba(255, 255, 255, 0.18));
+  transform: scaleX(0.5);
+  transform-origin: center;
+  transition:
+    transform 240ms cubic-bezier(0.2, 0.6, 0.2, 1),
+    background-color 240ms ease;
+}
+
+.carousel__dot[aria-current="true"] .carousel__dot-fill {
+  transform: scaleX(1);
+  background: var(--accent, currentColor);
+}
+
+@media (hover: hover) {
+  .carousel__dot:hover .carousel__dot-fill {
+    transform: scaleX(0.85);
+  }
+
+  .carousel__slide:hover {
+    border-color: var(
+      --card-hover-border,
+      var(--card-border-color, transparent)
+    );
+  }
+}
+
+@media (hover: none) {
+  .carousel__slide,
+  .carousel__slide--active {
+    transform: none;
+    opacity: 1;
+  }
+}
+
+@media (max-width: 600px) {
+  .carousel__slide {
+    flex-basis: clamp(260px, 80vw, 320px);
+    padding: clamp(18px, 5vw, 22px);
+  }
+
+  .carousel__slide-index {
+    font-size: clamp(28px, 10vw, 36px);
+  }
+
+  .carousel__track {
+    padding: 0 clamp(16px, 5vw, 32px);
+    gap: clamp(12px, 4vw, 18px);
+  }
+
+  .carousel__viewport {
+    scroll-padding-inline: 16px;
+    -webkit-mask-image: linear-gradient(
+      90deg,
+      transparent 0,
+      #000 3%,
+      #000 97%,
+      transparent 100%
+    );
+    mask-image: linear-gradient(
+      90deg,
+      transparent 0,
+      #000 3%,
+      #000 97%,
+      transparent 100%
+    );
+  }
+
+  .carousel__dot {
+    width: 28px;
+  }
+}
+
+@media (max-width: 414px) {
+  .carousel__slide {
+    flex-basis: clamp(248px, 82vw, 300px);
+  }
+  .carousel__track {
+    padding: 0 14px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .carousel__slide,
+  .carousel__slide--active {
+    transform: none !important;
+    opacity: 1 !important;
+    transition: none !important;
+  }
+
+  .carousel__dot-fill {
+    transition: none !important;
+  }
+
+  .carousel__viewport {
+    scroll-behavior: auto !important;
+  }
+}

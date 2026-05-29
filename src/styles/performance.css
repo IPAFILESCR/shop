@@ -1,0 +1,132 @@
+body {
+  -webkit-tap-highlight-color: transparent;
+}
+
+
+.price-card,
+.benefit,
+.faq__item,
+.bento__item,
+.bento-card,
+.testimonial,
+.process__step,
+.stat-tile{
+  contain: layout paint;
+}
+
+
+.page-progress__bar {
+  transform-origin: left center;
+  will-change: transform;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+
+[data-parallax] {
+  backface-visibility: hidden;
+}
+
+
+.price-card:hover,
+.price-card:focus-within {
+  will-change: transform;
+}
+
+.benefit:hover,
+.benefit:focus-within,
+.bento__item:hover,
+.bento__item:focus-within,
+.bento-card:hover,
+.bento-card:focus-within,
+.process__step:hover,
+.process__step:focus-within {
+  will-change: transform;
+}
+
+.btn:hover,
+.btn:active,
+.btn:focus-visible {
+  will-change: transform;
+}
+
+
+.btn,
+.faq__trigger,
+.device-tabs__btn,
+.price-card__cta,
+.site-header__cta,
+.site-header__nav a {
+  touch-action: manipulation;
+}
+
+.btn,
+.faq__trigger,
+.device-tabs__btn,
+.price-card__cta,
+.site-header__cta {
+  -webkit-touch-callout: none;
+}
+
+
+
+
+@media (hover: none), (pointer: coarse) {
+  .price-card,
+  .benefit,
+  .bento__item,
+  .bento-card,
+  .testimonial,
+  .process__step{
+    transition-property: background-color, border-color, color, opacity;
+    transition-duration: 180ms;
+  }
+
+  .price-card:hover,
+  .benefit:hover,
+  .bento__item:hover,
+  .bento-card:hover,
+  .process__step:hover {
+    transform: none;
+    box-shadow: none;
+  }
+}
+
+
+@media (prefers-reduced-data: reduce) {
+  [data-parallax] {
+    transform: none !important;
+    will-change: auto !important;
+  }
+
+  [data-reveal] {
+    transition: none !important;
+    transform: none !important;
+    opacity: 1 !important;
+  }
+}
+
+
+@media (prefers-reduced-motion: reduce) {
+  .page-progress__bar,
+  [data-parallax] {
+    will-change: auto !important;
+    transform: none !important;
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+
+.faq__plus,
+.faq__plus-v,
+.process__index,
+.stat-tile__number{
+  transform: translateZ(0);
+}
+
+
+.price-card__price-value,
+.stat-tile__number{
+  font-variant-numeric: tabular-nums;
+}

@@ -1,0 +1,133 @@
+:root {
+  --section-py: clamp(48px, 6vw, 88px);
+}
+
+section.category,
+.stats-band,
+.testimonials,
+.faq,
+.process {
+  padding-top: var(--section-py);
+  padding-bottom: var(--section-py);
+}
+
+section.category + section.category,
+.category + .category {
+  padding-top: 0;
+}
+
+.faq {
+  padding-bottom: clamp(60px, 7vw, 96px);
+}
+
+
+@media (min-width: 1441px) {
+  .container {
+    padding-left: clamp(32px, 4vw, 56px);
+    padding-right: clamp(32px, 4vw, 56px);
+  }
+}
+
+
+@media (min-width: 720px) {
+  .category__head {
+    position: relative;
+  }
+  .category__head::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: calc(-1 * clamp(24px, 3vw, 40px));
+    height: 1px;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      var(--accent, currentColor) 18%,
+      var(--accent, currentColor) 82%,
+      transparent
+    );
+    opacity: 0.18;
+    pointer-events: none;
+  }
+}
+
+
+.testimonial__quote {
+  font-size: clamp(40px, 5vw, 56px);
+}
+
+@media (min-width: 1240px) {
+  .testimonials__grid {
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  }
+}
+
+
+@media (max-width: 640px) {
+  .stat-tile__suffix {
+    margin-left: 4px;
+  }
+}
+
+
+.process__description {
+  max-width: 30ch;
+}
+
+
+@media (min-width: 720px) {
+  .faq__list {
+    gap: clamp(6px, 0.8vw, 10px);
+  }
+}
+
+
+@media (min-width: 601px) and (max-width: 768px) {
+  .site-footer__grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  .site-footer__brand {
+    grid-column: 1 / -1;
+  }
+}
+
+.site-footer__bottom {
+  align-items: center;
+}
+
+@media (min-width: 481px) {
+  .site-footer__bottom {
+    gap: clamp(12px, 2vw, 24px);
+  }
+}
+
+
+@supports (text-wrap: balance) {
+  h1,
+  h2,
+  h3,
+  h4,
+  .category__title,
+  .hero__title,
+  .guarantee__heading,
+  .process__title,
+  .faq__question {
+    text-wrap: balance;
+  }
+
+  .category__subtitle,
+  .guarantee__lede,
+  .testimonial__body,
+  .faq__answer,
+  .process__description {
+    text-wrap: pretty;
+  }
+}
+
+
+@media (prefers-reduced-motion: reduce) {
+  .category__head::before {
+    transition: none !important;
+  }
+}
